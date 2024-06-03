@@ -7,9 +7,18 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
+  // =========== dev ============
+
+  // host: "localhost",
+  // user: "root",
+  // password: "",
+  // database: "book_shop",
+
+  // =========== prod ============
+  host: "book-shop-book-shop.f.aivencloud.com",
+  port: 12252,
+  user: "avnadmin",
+  password: "AVNS_3QvQkCMvXvR5pg2aPWF",
   database: "book_shop",
 });
 

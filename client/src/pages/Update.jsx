@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { base_url } from "../constants";
 
 const Update = () => {
   const [book, setBook] = useState({
@@ -24,7 +25,7 @@ const Update = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:8800/books/${bookId}`, book);
+      await axios.put(`${base_url}/books/${bookId}`, book);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -35,7 +36,7 @@ const Update = () => {
   // fetch data on page load
   useEffect(() => {
     const fetchBook = async () => {
-      const res = await axios.get(`http://localhost:8800/books/${bookId}`);
+      const res = await axios.get(`${base_url}/books/${bookId}`);
       setBook(res.data);
     };
 
